@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food - Deliveren</title>
+    <link rel="shortcut icon" type="x-icon" href="/public/images/main_logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+<!-- Header -->
+<header class="bg-orange-400 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+        <div class="flex items-center space-x-3">
+            <img src="images/small_logo.png" alt="Deliveren Logo" class="h-8">
+            <h1 class="text-xl font-bold">Deliveren</h1>
+        </div>
+        <nav class="hidden md:flex space-x-24">
+            <a href="index.html" class="text-black hover:text-white">Home</a>
+            <a href="#menu" class="text-black hover:text-white">Menu</a>
+            <a href="#about" class="text-black hover:text-white">About Us</a>
+        </nav>
+        
+        <!-- Search Bar -->
+        <div class="relative">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search..."
+                class="px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-orange-400 w-64"
+            />
+            <button id="search-btn" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                <i class="bx bx-search"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Order Section -->
+<section id="order" class="py-12 px-10">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8 text-red-600">Order Your Favorite Food</h2>
+        
+        <!-- Food Items -->
+        <div id="food-items" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Big Mac -->
+            <div class="food-item bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105" data-name="Big Mac">
+                <img src="images/bigmac.jpg" alt="Big Mac" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-xl font-semibold mt-4">Big Mac</h3>
+                <p class="text-gray-600">Price: <strong>₱55.99</strong></p>
+                <p class="text-green-500">Available</p>
+                <a href="confirm_order.html" class="bg-red-500 text-white mt-4 px-4 py-2 rounded-md inline-block hover:bg-yellow-400 hover:text-black">Order Now</a>
+            </div>
+            
+            <!-- French Fries -->
+            <div class="food-item bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105" data-name="French Fries">
+                <img src="images/mcfries.png" alt="French Fries" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-xl font-semibold mt-4">French Fries</h3>
+                <p class="text-gray-600">Price: <strong>₱92.99</strong></p>
+                <p class="text-green-500">Available</p>
+                <a href="confirm_order.html" class="bg-red-500 text-white mt-4 px-4 py-2 rounded-md inline-block hover:bg-yellow-400 hover:text-black">Order Now</a>
+            </div>
+
+            <!-- Caramel Macchiato -->
+            <div class="food-item bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105" data-name="Caramel Macchiato">
+                <img src="images/starbucks-coffee.jpg" alt="Caramel Macchiato" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-xl font-semibold mt-4">Caramel Macchiato</h3>
+                <p class="text-gray-600">Price: <strong>₱144.50</strong></p>
+                <p class="text-green-500">Available</p>
+                <a href="confirm_order.html" class="bg-red-500 text-white mt-4 px-4 py-2 rounded-md inline-block hover:bg-yellow-400 hover:text-black">Order Now</a>
+            </div>
+
+            <!-- Chocolate Cake -->
+            <div class="food-item bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105" data-name="Chocolate Cake">
+                <img src="images/starbucks-cake.jpg" alt="Chocolate Cake" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-xl font-semibold mt-4">Chocolate Cake</h3>
+                <p class="text-gray-600">Price: <strong>₱153.99</strong></p>
+                <p class="text-red-500">Out of Stock</p>
+                <button class="bg-gray-400 text-white mt-4 px-4 py-2 rounded-md cursor-not-allowed">Order Now</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+// JavaScript to handle the search functionality
+const searchInput = document.getElementById("search-input");
+const foodItems = document.querySelectorAll(".food-item");
+
+searchInput.addEventListener("input", function() {
+    const searchText = searchInput.value.toLowerCase();
+    
+    foodItems.forEach(item => {
+        const itemName = item.getAttribute("data-name").toLowerCase();
+        
+        if (itemName.includes(searchText)) {
+            item.style.display = "block"; // Show item if it matches
+        } else {
+            item.style.display = "none"; // Hide item if it doesn't match
+        }
+    });
+});
+</script>
+
+</body>
+</html>
