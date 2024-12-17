@@ -20,14 +20,23 @@
             <img src="images/small_logo.png" alt="Deliveren Logo" class="h-8">
             <h1 class="text-xl font-bold">Deliveren</h1>
         </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+            <button id="menu-toggle" class="text-black">
+                <i class="bx bx-menu text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Navigation Menu (Desktop) -->
         <nav class="hidden md:flex space-x-24">
             <a href="index.html" class="text-black hover:text-white">Home</a>
             <a href="#menu" class="text-black hover:text-white">Menu</a>
             <a href="#about" class="text-black hover:text-white">About Us</a>
         </nav>
-        
+
         <!-- Search Bar -->
-        <div class="relative">
+        <div class="relative hidden md:block">
             <input
                 type="text"
                 id="search-input"
@@ -38,6 +47,15 @@
                 <i class="bx bx-search"></i>
             </button>
         </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="md:hidden hidden">
+        <nav class="flex flex-col space-y-4 bg-orange-400 py-4 px-6">
+            <a href="index.html" class="text-black hover:text-white">Home</a>
+            <a href="#menu" class="text-black hover:text-white">Menu</a>
+            <a href="#about" class="text-black hover:text-white">About Us</a>
+        </nav>
     </div>
 </header>
 
@@ -87,7 +105,6 @@
     </div>
 </section>
 
-
 <script>
 // JavaScript to handle the search functionality
 const searchInput = document.getElementById("search-input");
@@ -105,6 +122,14 @@ searchInput.addEventListener("input", function() {
             item.style.display = "none"; // Hide item if it doesn't match
         }
     });
+});
+
+// JavaScript to handle the mobile menu toggle
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuToggle.addEventListener("click", function() {
+    mobileMenu.classList.toggle("hidden");
 });
 </script>
 

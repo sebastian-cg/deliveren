@@ -16,16 +16,32 @@
 <!-- Header -->
 <header class="bg-orange-400 shadow-md sticky top-0 z-50">
     <div class="container mx-auto flex items-center justify-between py-4 px-6">
-    <div class="flex items-center space-x-3">
-        <img src="images/small_logo.png" alt="Deliveren Logo" class="h-8">
-        <h1 class="text-xl font-bold">Deliveren</h1>
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+            <img src="images/small_logo.png" alt="Deliveren Logo" class="h-8">
+            <h1 class="text-xl font-bold">Deliveren</h1>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button id="menu-button" class="text-black md:hidden">
+            <i class="bx bx-menu text-3xl"></i>
+        </button>
+
+        <!-- Navigation Menu -->
+        <nav id="menu" class="hidden md:flex md:space-x-8">
+            <a href="#home" class="text-black hover:text-white">Home</a>
+            <a href="#services" class="text-black hover:text-white">Services</a>
+            <a href="#menu" class="text-black hover:text-white">Menu</a>
+            <a href="#about" class="text-black hover:text-white">About us</a>
+        </nav>
     </div>
-    <nav class="hidden md:flex space-x-24">
-        <a href="#home" class="text-black hover:text-white">Home</a>
-        <a href="#services" class="text-black hover:text-white">Services</a>
-        <a href="#menu" class="text-black hover:text-white">Menu</a>
-        <a href="#about" class="text-black hover:text-white">About us</a>
-    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden flex-col space-y-2 bg-orange-400 px-6 py-4">
+        <a href="#home" class="block text-black hover:text-white">Home</a>
+        <a href="#services" class="block text-black hover:text-white">Services</a>
+        <a href="#menu" class="block text-black hover:text-white">Menu</a>
+        <a href="#about" class="block text-black hover:text-white">About us</a>
     </div>
 </header>
 
@@ -202,6 +218,12 @@
 
 
 <script>
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
 function redirectToFacebook() {
     window.location.href = "https://www.facebook.com/dongpadilla001";
 }
